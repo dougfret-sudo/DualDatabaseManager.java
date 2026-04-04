@@ -1,43 +1,22 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.Statement;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 public class DualDatabaseManager {
 
-    private static final String SQL_URL = "jdbc:sqlite:ledger.db";
-
-    // This block runs the SECOND the class is loaded to force the driver to wake up
-    static {
+    // 1. The "Structured" Store (Simulates SQL Ledger)
+    public void syncStructuredLedger(int recordId, String status) {
         try {
-            Class.forName("org.sqlite.JDBC");
-        } catch (ClassNotFoundException e) {
-            System.err.println("Driver not found in classpath!");
-        }
-    }
-
-    public void syncSqlLedger(int recordId, String status) {
-        try (Connection conn = DriverManager.getConnection(SQL_URL)) {
-            // Create the table if it doesn't exist
-            try (Statement stmt = conn.createStatement()) {
-                stmt.execute("CREATE TABLE IF NOT EXISTS ledger (id INTEGER, status TEXT)");
-            }
-            
-            // Insert the data
-            String sql = "INSERT INTO ledger(id, status) VALUES(?,?)";
-            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                pstmt.setInt(1, recordId);
-                pstmt.setString(2, status);
-                pstmt.executeUpdate();
-                System.out.println("SQL Ledger Updated: ID " + recordId);
-            }
+            String csvLine = recordId + "," + status + "," + System.currentTimeMillis() + "\n";
+            Files.write(Paths.get("ledger_db.csv"), csvLine.getBytes(), 
+                        StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+            System.out.println("Structured Ledger Updated (CSV): ID " + recordId);
         } catch (Exception e) {
-            System.out.println("SQL Error: " + e.getMessage());
+            System.out.println("Ledger Error: " + e.getMessage());
         }
     }
 
+    // 2. The "Unstructured" Store (JSON Payload)
     public void syncJsonStore(int recordId, String jsonPayload) {
         try {
             Files.write(Paths.get("data_" + recordId + ".json"), jsonPayload.getBytes());
@@ -49,7 +28,8 @@ public class DualDatabaseManager {
 
     public static void main(String[] args) {
         DualDatabaseManager manager = new DualDatabaseManager();
-        manager.syncSqlLedger(101, "SYNCED");
-        manager.syncJsonStore(101, "{ 'ai_prediction': '90%', 'notes': 'Verified' }");
+        // Execute Dual Sync
+        manager.syncStructuredLedger(101, "VERIFIED");
+        manager.syncJsonStore(101, "{ 'accuracy': '90%', 'status': 'Stable' }");
     }
 }
