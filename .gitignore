@@ -1,0 +1,9 @@
+# Ignore the database and generated files
+ledger.db
+data_*.json
+
+# Ignore compiled Java files
+*.class
+
+# Ignore the JAR (Users should download their own)
+*.jar
