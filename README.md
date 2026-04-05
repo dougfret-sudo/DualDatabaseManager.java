@@ -24,20 +24,20 @@ This system utilizes a **Hybrid Storage** approach:
 Download the latest [SQLite JDBC JAR](https://github.com) and place it in the project root folder.
 
 # Java Dual-Database Sync Engine 🏗️
-
 A high-integrity system to sync SQL (SQLite) and JSON data simultaneously.
 
 ### 🚦 How to Run
 
-1. Download the SQLite JDBC JAR to this folder.
+1. **Download the Driver:** Download the latest [SQLite JDBC JAR](https://github.com) to this folder.
 
-2. Windows Commands:
-   javac -cp ".;sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager.java
-   java -cp ".;sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager
+2. **Windows Commands:**
+**Compile:** `javac -cp ".;sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager.java` <br>
+**Run:** `java -cp ".;sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager`
 
-3. macOS / Linux Commands:
-   javac -cp ".:sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager.java
-   java -cp ".:sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager
+3. **macOS / Linux Commands:**
+**Compile:** `javac -cp ".:sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager.java` <br>
+**Run:** `java -cp ".:sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager`
+
 
 ### 🤝 Contributing
 See CONTRIBUTING.md for PR details.
