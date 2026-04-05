@@ -20,9 +20,6 @@ This system utilizes a **Hybrid Storage** approach:
 
 ### 🚦 How to Run
 
-#### 1. Download the Driver
-Download the latest [SQLite JDBC JAR](https://github.com) and place it in the project root folder.
-
 # Java Dual-Database Sync Engine 🏗️
 A high-integrity system to sync SQL (SQLite) and JSON data simultaneously.
 
