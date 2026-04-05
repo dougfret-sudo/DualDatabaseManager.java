@@ -18,8 +18,6 @@ This system utilizes a **Hybrid Storage** approach:
 * **ledger.db:** The local SQLite database generated for relational tracking.
 * **data_[ID].json:** Individual document files generated for unstructured payloads.
 
----
-
 ### 🚦 How to Run
 
 #### 1. Download the Driver
