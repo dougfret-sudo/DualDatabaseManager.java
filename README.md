@@ -6,7 +6,7 @@ Relational Ledger (SQLite): Stores critical metadata, transaction IDs, and statu
 Document Store (JSON): Persists large, "fuzzy" AI outputs and conversation logs that require schema flexibility.
 🚀 Key Features
 JDBC Integration: Utilizes Java Database Connectivity for secure SQL operations.
-Strict Data Typing: Leverages Java's strong typing to prevent data corruption during synchronization.
+Strict Data Typing: Leverages Java's strong typing to prevent data corruption.
 Thread-Safe Logic: Designed to handle simultaneous data streams from multiple sources.
 📁 File Structure
 DualDatabaseManager.java: The core logic engine handling the SQL/JSON handshake.
@@ -16,7 +16,8 @@ data_[ID].json: Individual document files generated for unstructured payloads.
 1. Download the Driver
 Download the latest SQLite JDBC JAR and place it in the project root folder.
 2. Compile and Execute
-Note: Replace 3.45.2.0 with the version number of the JAR file you downloaded.
+Note: Replace 3.45.2.0 with the specific version number of the JAR file you downloaded.
+
 Windows
 
 # Compile
@@ -24,6 +25,8 @@ javac -cp ".;sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager.java
 
 # Run
 java -cp ".;sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager
+
+macOS / Linux
 
 # Compile
 javac -cp ".:sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager.java
@@ -33,5 +36,6 @@ java -cp ".:sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager
 
 🤝 Contributing
 Please see CONTRIBUTING.md for details on our code of conduct and the process for submitting pull requests.
+
 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
