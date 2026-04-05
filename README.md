@@ -17,8 +17,10 @@ This system utilizes a **Hybrid Storage** approach:
 - `ledger.db`: The local SQLite database generated for relational tracking.
 - `data_[ID].json`: Individual document files generated for unstructured payloads.
 
-## 🚦 How to Run
-1. Ensure you have the **SQLite JDBC Driver** in your classpath.
-2. Compile the Manager:
+### 🚦 How to Run
+
+1. **Download the Driver:** Download the latest [SQLite JDBC JAR](https://github.com) and place it in the project root.
+2. **Compile:**
    ```bash
-   javac DualDatabaseManager.java
+   javac -cp ".;sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager.java
+java -cp ".;sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager
