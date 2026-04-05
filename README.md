@@ -25,7 +25,7 @@ This system utilizes a **Hybrid Storage** approach:
 #### 1. Download the Driver
 Download the latest [SQLite JDBC JAR](https://github.com) and place it in the project root folder.
 
-#### 2. Windows Commands
+### 2. Windows Commands
 ```bash
 # Compile
 javac -cp ".;sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager.java
@@ -33,11 +33,14 @@ javac -cp ".;sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager.java
 # Run
 java -cp ".;sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager
 
+3. macOS / Linux Commands
+
 # Compile
 javac -cp ".:sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager.java
 
 # Run
 java -cp ".:sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager
+
 🤝 Contributing
 Please see CONTRIBUTING.md for details on our code of conduct and the process for submitting pull requests.
 📄 License
