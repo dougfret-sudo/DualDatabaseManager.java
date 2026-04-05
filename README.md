@@ -24,6 +24,7 @@ This system utilizes a **Hybrid Storage** approach:
 Download the latest [SQLite JDBC JAR](https://github.com) and place it in the project root folder.
 
 ### 2. Windows Commands
+```bash
 # Compile
 javac -cp ".;sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager.java
 
@@ -37,8 +38,3 @@ javac -cp ".:sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager.java
 
 # Run
 java -cp ".:sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager
-
-🤝 Contributing
-Please see CONTRIBUTING.md for details on our code of conduct and the process for submitting pull requests.
-📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
