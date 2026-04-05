@@ -24,3 +24,9 @@ This system utilizes a **Hybrid Storage** approach:
    ```bash
    javac -cp ".;sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager.java
 java -cp ".;sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager
+
+# Windows
+javac -cp ".;sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager.java
+
+# macOS/Linux
+javac -cp ".:sqlite-jdbc-3.45.2.0.jar" DualDatabaseManager.java
